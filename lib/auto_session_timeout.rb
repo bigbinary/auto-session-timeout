@@ -38,6 +38,7 @@ module AutoSessionTimeout
   private
 
   def handle_session_reset(c)
+    single_sign_out
     c.send :reset_session
   end
 
