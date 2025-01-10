@@ -45,7 +45,8 @@ module AutoSessionTimeout
   end
 
   def signing_in?(c)
-    c.request.env['PATH_INFO'] == sign_in_path && c.request.env['REQUEST_METHOD'] == 'POST'
+    (c.request.env['PATH_INFO'] == sign_in_path && c.request.env['REQUEST_METHOD'] == 'POST') ||
+      (c.request.env['REQUEST_METHOD'] == 'GET' && c.request.query_parameters.key?('ott'))
   end
 
   def session_expired?(c)
