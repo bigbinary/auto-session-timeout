@@ -50,7 +50,7 @@ module AutoSessionTimeout
   end
 
   def session_expired?(c)
-    c.session[:auto_session_expires_at].try(:<, Time.now)
+    c.session[:auto_session_expires_at]&.< Time.now
   end
 
   def sign_in_path

@@ -13,12 +13,12 @@ Gem::Specification.new do |spec|
   spec.homepage      = "http://github.com/pelargir/auto-session-timeout"
   spec.license       = "MIT"
 
-  spec.files         = `git ls-files`.split($/)
+  spec.files         = Dir.glob("{lib,test}/**/*") + %w[README.md LICENSE auto-session-timeout.gemspec]
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "actionpack", [">= 3.2", "< 8.0"]
+  spec.add_dependency "actionpack", [">= 3.2", "< 9.0"]
   spec.add_development_dependency "bundler", "~> 2.0"
   spec.add_development_dependency "rake", "~> 13.0"
   spec.add_development_dependency "minitest", [">= 4.2", "< 6"]
